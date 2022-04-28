@@ -1,0 +1,46 @@
+query FIND_CONTENTS_BANNER($sort: String, $skip: Int, $limit: Int, $search: String) {
+	findMainBanners(sort: $sort, skip: $skip, limit: $limit, search: $search) {
+		_id
+		__typename
+		contents {
+			txt_title
+			txta_description
+			txt_startDT
+			txt_startTime
+			txt_endDT
+			txt_endTime
+			rad_isUse
+			rad_color
+			txt_sort
+			txt_link
+			images {
+				filename
+			}
+		}
+		totalCount
+		pageSize
+	}
+}
+
+query GET_CONTENTS($id: String) {
+	viewMainBanner(id: $id) {
+		id
+		contents {
+			txt_title
+			txta_description
+			txt_startDT
+			txt_startTime
+			txt_endDT
+			txt_endTime
+			rad_isUse
+			sel_link
+			txt_link
+			sel_sort
+			txt_sort
+			images {
+				filename
+				mimetype
+			}
+		}
+	}
+}
